@@ -37,7 +37,7 @@ export type ServerMessage = {
 
 export class WebSocketService {
   private socket;
-  // private messageBuffer: MessageEvent[] = [];
+
   constructor(port: string) {
     this.socket = new WebSocket(`ws://localhost:${port}`); // TODO:: change to get host from env
   }
