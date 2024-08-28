@@ -1,4 +1,4 @@
-import WebSocket from "ws";
+import WebSocket, { WebSocketServer } from "ws";
 import { Card, CardCollection, CardSuite } from "./Card";
 import { createClientId, createRoomId } from "./utils/session";
 
@@ -68,7 +68,7 @@ type ClientInfo = {
 
 const clients: Record<string, ClientInfo> = {};
 
-const wss = new WebSocket.Server({ port: 3838 });
+const wss = new WebSocketServer({ port: 5555 });
 
 wss.on("connection", (ws: WebSocket) => {
   console.log("New client connected");

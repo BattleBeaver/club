@@ -35,7 +35,7 @@ function App() {
   const roomIdInput = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    const socket = new WebSocketService("3838");
+    const socket = new WebSocketService("5555");
     const socketInstance = socket.getSocket();
     socketInstance.addEventListener("open", () => {
       socket.sendMessage({
@@ -52,14 +52,15 @@ function App() {
         console.log("Message from server ", serverMessage);
         if (message === ServerResponseMessage.SUCCESSFUL_CONNECTION) {
           setClientId(data.id.toString());
-        } else {
-          processMessage(event.data, clientId);
+          return;
         }
+        processMessage(event.data);
+        return;
       }
     );
   }, []);
 
-  const processMessage = (serverStringMessage: string, c) => {
+  const processMessage = (serverStringMessage: string) => {
     const serverMessage: ServerMessage = JSON.parse(serverStringMessage);
     const { message, data } = serverMessage;
     switch (message) {

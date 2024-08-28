@@ -39,7 +39,7 @@ export class WebSocketService {
   private socket;
 
   constructor(port: string) {
-    this.socket = new WebSocket(`ws://localhost:${port}`); // TODO:: change to get host from env
+    this.socket = new WebSocket(`http://192.168.0.108:${port}`); // TODO:: change to get host from env
   }
 
   public getSocket() {
