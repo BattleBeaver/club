@@ -16,7 +16,7 @@ type CardTableProps = {
   trumpCard?: Card;
 };
 
-const pathToCards = "../../assets/cards";
+const pathToCards = "../../cards";
 
 const CardTable = ({
   cards,
